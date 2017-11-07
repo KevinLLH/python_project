@@ -559,4 +559,29 @@ GET lagou/testjob2/_search
   }
 }
 
+#模糊搜索fuzzy
+#match查询,会分词
+GET lagou/_search
+{
+  "query": {
+    "fuzzy": {
+      "title": "python"
+    },
+    "_source":["title"]
+  }
+}
+
+GET lagou/_search
+{
+  "query": {
+    "fuzzy": {
+      "title": {
+        "value": "linx",
+        "fuzziness": 0.5,
+        "prefix_length": 0
+      }
+    },
+    "_source":["title"]
+  }
+}
 
