@@ -10,6 +10,9 @@ import os
 import json
 mymap=['0','1','2','3','4','5','6','7']
 
+
+
+
 #根据关键字获取查询网页
 def baidu_search(key_words,pagenum):
     url='http://www.baidu.com/s?wd='+key_words+'&pn='+mymap[pagenum]
@@ -59,11 +62,9 @@ def deal_key(key_words):
 #读取搜索文件内容，依次取出要搜索的关键字
 def search_file():
     fp=open('searchfile.txt')
-    i=0
     keyword=fp.readline()
     print("[keyword]:"+keyword)
     while keyword:
-        i=i+1
         nPos=keyword.find('\n')
         if nPos>-1:
             keyword=keyword[:-1]#keyword.replace('\n','')
