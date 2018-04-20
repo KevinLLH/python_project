@@ -78,18 +78,17 @@ def jieba_cut(rawContent):
 
 
 def count_tf(rawContent):
-
-
-    fileout_path=""
-    wlist = rawContent.split()      # 将分词结果按空格切割为列表（字符串的切割）
+    fileout_path="../data2/result.txt"
+    wlist = rawContent.split()  # 将分词结果按空格切割为列表（字符串的切割）
     num_dict = Counter(wlist)  # 统计词频
 
     # 统计结果写入result.txt(字典的遍历)
     for (k, v) in num_dict.items():
-        codecs.open('data/result.txt', 'a+', "utf-8").write(str(k) + ' ' + str(v) + '\n')   # 将k，v转换为str类型
+        codecs.open(fileout_path, 'a+', "utf-8").write(str(k) + ' ' + str(v) + '\n')   # 将k，v转换为str类型
 
 
 if __name__ == '__main__':
     #结巴分词
-    output_content = readFile(filepath)
-    writeFile(targetFile,output_content)
+    # output_content = readFile(filepath)
+    # writeFile(targetFile,output_content)
+    count_tf("你好 北京 北京")
